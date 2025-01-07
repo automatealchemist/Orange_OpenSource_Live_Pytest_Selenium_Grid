@@ -47,4 +47,8 @@ def setup(request):
     driver.find_element(By.XPATH, '//*[@id="app"]/div[1]/div/div[1]/div/div[2]/div[2]/form/div[3]/button').click()
     request.cls.driver=driver
     yield
+    driver.find_element(By.XPATH,'//*[@id="app"]/div[1]/div[1]/header/div[1]/div[3]/ul/li').click()
+    time.sleep(2)
+    driver.find_element(By.XPATH,'//*[@id="app"]/div[1]/div[1]/header/div[1]/div[3]/ul/li/ul/li[4]/a').click()
+    time.sleep(5)
     driver.close()
