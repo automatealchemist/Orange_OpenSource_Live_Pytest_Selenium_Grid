@@ -11,12 +11,28 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
 
+def pytest_addoption(parser):
+    parser.addoption(
+        "--browser_name", action="store", default="chrome"
+    )
+
+
 
 @pytest.fixture(scope="class")
 def setup(request):
-    chrome_option = Options()
-    chrome_option.add_experimental_option("detach", True)
-    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_option)
+    browser_name = request.config.getoption("browser_name")
+    if browser_name == "chrome":
+        chrome_option = Options()
+        chrome_option.add_experimental_option("detach", True)
+        driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_option)
+
+    #elif browser_name == "firefox":
+     #   serv_obj = Service("C:/Users/HELLO/OrangeHRM Demo-Open Source Website Through Pytest/firefoxdriver.exe")
+      #  driver = webdriver.Firefox(service=serv_obj)
+    elif browser_name == "edge":
+       ser_obj = Service(r"C:\Users\HELLO\OrangeHRM Demo-Open Source Website Through Pytest\msedgedriver.exe")
+       driver = webdriver.Edge(service=ser_obj)
+
     driver.maximize_window()
     driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
     time.sleep(5)
