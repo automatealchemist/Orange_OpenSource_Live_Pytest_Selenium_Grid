@@ -10,6 +10,25 @@ class Employee_Management:
     username = (By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[1]/div[2]/div[3]/div/div[1]/div/div[2]/input')
     password = (By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[1]/div[2]/div[4]/div/div[1]/div/div[2]/input')
     confirm_password = (By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[1]/div[2]/div[4]/div/div[2]/div/div[2]/input')
+    number =(By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[1]/div[2]/div[1]/div[2]/div/div/div[2]/input')
+    login_details = (By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[1]/div[2]/div[2]/div/label/span')
+    save_button = (By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[2]/button[2]')
+    pim_h = (By.XPATH, '//*[@id="app"]/div[1]/div[1]/header/div[2]/nav/ul/li[2]/a')
+    search = (By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[1]/div/div[2]/div/div/input')
+    search_num = (By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[2]/div/div[2]/input')
+    search_b = (By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[2]/button[2]')
+    edit_icon = (By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div[2]/div[3]/div/div[2]/div/div/div[9]/div/button[1]')
+    cal = (By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/div/div[2]/div[1]/form/div[2]/div[2]/div[2]/div/div[2]/div/div/input')
+    country = (By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/div/div[2]/div[1]/form/div[3]/div[1]/div[1]/div/div[2]/div/div')
+    country_option = (By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/div/div[2]/div[1]/form/div[3]/div[1]/div[1]/div/div[2]/div/div[2]/div[83]')
+    marital_dropdowns = (By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/div/div[2]/div[1]/form/div[3]/div[1]/div[2]/div/div[2]/div/div')
+    marital_option = (By.XPATH,'//*[@id="app"]/div[1]/div[2]/div[2]/div/div/div/div[2]/div[1]/form/div[3]/div[1]/div[2]/div/div[2]/div/div[2]/div[2]')
+    dob = (By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/div/div[2]/div[1]/form/div[3]/div[2]/div[1]/div/div[2]/div/div/input')
+    gender = (By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/div/div[2]/div[1]/form/div[3]/div[2]/div[2]/div/div[2]/div[1]/div[2]/div/label/span')
+    data_save= (By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/div/div[2]/div[1]/form/div[4]/button')
+    blood_group=(By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/div/div[2]/div[2]/div/form/div[1]/div/div[1]/div/div[2]/div/div')
+    blood_group_option = (By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/div/div[2]/div[2]/div/form/div[1]/div/div[1]/div/div[2]/div/div[2]/div[6]')
+    blood_group_save = (By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/div/div[2]/div[2]/div/form/div[2]/button')
 
     def __init__(self,driver):
         self.driver=driver
@@ -53,114 +72,60 @@ class Employee_Management:
     def confirm_password_input(self):
         return self.driver.find_element(*Employee_Management.confirm_password)
 
+    def num(self):
+        return self.driver.find_element(*Employee_Management.number)
 
+    def login_detail(self):
+        return self.driver.find_element(*Employee_Management.login_details)
 
-    '''
-    time.sleep(5)
+    def save(self):
+        return self.driver.find_element(*Employee_Management.save_button)
 
-    self.driver.find_element(By.XPATH,
-                             '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[1]/div[2]/div[1]/div[1]/div/div/div[2]/div[2]/div[2]/input').click()
-    self.driver.find_element(By.XPATH,
-                             '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[1]/div[2]/div[1]/div[1]/div/div/div[2]/div[2]/div[2]/input').send_keys(
-        "k")
-    self.driver.find_element(By.XPATH,
-                             '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[1]/div[2]/div[1]/div[1]/div/div/div[2]/div[3]/div[2]/input').click()
-    self.driver.find_element(By.XPATH,
-                             '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[1]/div[2]/div[1]/div[1]/div/div/div[2]/div[3]/div[2]/input').send_keys(
-        "Bird")
+    def pim_home(self):
+        return self.driver.find_element(*Employee_Management.pim_h)
 
-    number = random.randint(1000, 9999)
-    time.sleep(3)
+    def search_name(self):
+        return self.driver.find_element(*Employee_Management.search)
 
-    element = self.driver.find_element(By.XPATH,
-                                       '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[1]/div[2]/div[1]/div[2]/div/div/div[2]/input')
-    element.send_keys(Keys.CONTROL + "a")  # Select all text
-    element.send_keys(Keys.BACKSPACE)  # Delete selected text
-    element.send_keys(number)
+    def search_number(self):
+        return self.driver.find_element(*Employee_Management.search_num)
 
-    self.driver.find_element(By.XPATH,
-                             '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[1]/div[2]/div[2]/div/label/span').click()
-    self.driver.find_element(By.XPATH,
-                             '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[1]/div[2]/div[3]/div/div[1]/div/div[2]/input').click()
-    self.driver.find_element(By.XPATH,
-                             '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[1]/div[2]/div[3]/div/div[1]/div/div[2]/input').send_keys(
-        'angrybird')
-    self.driver.find_element(By.XPATH,
-                             '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[1]/div[2]/div[4]/div/div[1]/div/div[2]/input').click()
-    self.driver.find_element(By.XPATH,
-                             '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[1]/div[2]/div[4]/div/div[1]/div/div[2]/input').send_keys(
-        'Password@123')
-    self.driver.find_element(By.XPATH,
-                             '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[1]/div[2]/div[4]/div/div[2]/div/div[2]/input').click()
-    self.driver.find_element(By.XPATH,
-                             '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[1]/div[2]/div[4]/div/div[2]/div/div[2]/input').send_keys(
-        'Password@123')
+    def search_data(self):
+        return self.driver.find_element(*Employee_Management.search_b)
 
-    self.driver.find_element(By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[2]/button[2]').click()
+    def edit_button(self):
+        return self.driver.find_element(*Employee_Management.edit_icon)
 
-    time.sleep(10)
+    def calendar(self):
+        return self.driver.find_element(*Employee_Management.cal)
 
-    self.driver.find_element(By.XPATH, '//*[@id="app"]/div[1]/div[1]/header/div[2]/nav/ul/li[2]/a').click()
-    time.sleep(5)
+    def country_dropdown(self):
+        return self.driver.find_element(*Employee_Management.country)
 
-    self.driver.find_element(By.XPATH,
-                             '//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[1]/div/div[2]/div/div/input').click()
-    self.driver.find_element(By.XPATH,
-                             '//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[1]/div/div[2]/div/div/input').send_keys(
-        "Angry k Bird")
-    time.sleep(3)
-    self.driver.find_element(By.XPATH,
-                             '//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[1]/div/div[2]/div/div[2]/div').click()
-    time.sleep(5)
+    def country_select(self):
+        return self.driver.find_element(*Employee_Management.country_option)
 
-    self.driver.find_element(By.XPATH,
-                             '//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[2]/div/div[2]/input').click()
-    self.driver.find_element(By.XPATH,
-                             '//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[2]/div/div[2]/input').send_keys(
-        number)
-    self.driver.find_element(By.XPATH,
-                             '//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[2]/button[2]').click()
-    time.sleep(3)
-    self.driver.find_element(By.XPATH,
-                             '//*[@id="app"]/div[1]/div[2]/div[2]/div/div[2]/div[3]/div/div[2]/div/div/div[9]/div/button[1]').click()
-    time.sleep(3)
-    self.driver.find_element(By.XPATH,
-                             '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/div/div[2]/div[1]/form/div[2]/div[2]/div[2]/div/div[2]/div/div/input').click()
-    time.sleep(3)
-    # driver.find_element(By.XPATH,'//*[@id="app"]/div[1]/div[2]/div[2]/div/div/div/div[2]/div[1]/form/div[2]/div[2]/div[2]/div/div[2]/div/div/input').clear()
-    # driver.find_element(By.XPATH,'//*[@id="app"]/div[1]/div[2]/div[2]/div/div/div/div[2]/div[1]/form/div[2]/div[2]/div[2]/div/div[2]/div/div/input').send_keys("2024-12-12")
-    time.sleep(3)
-    self.driver.find_element(By.XPATH,
-                             '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/div/div[2]/div[1]/form/div[3]/div[1]/div[1]/div/div[2]/div/div').click()
-    time.sleep(2)
-    self.driver.find_element(By.XPATH,
-                             '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/div/div[2]/div[1]/form/div[3]/div[1]/div[1]/div/div[2]/div/div[2]/div[83]').click()
-    time.sleep(3)
-    self.driver.find_element(By.XPATH,
-                             '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/div/div[2]/div[1]/form/div[3]/div[1]/div[2]/div/div[2]/div/div').click()
-    self.driver.find_element(By.XPATH,
-                             '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/div/div[2]/div[1]/form/div[3]/div[1]/div[2]/div/div[2]/div/div[2]/div[2]').click()
-    time.sleep(3)
+    def marital_dropdown(self):
+        return self.driver.find_element(*Employee_Management.marital_dropdowns)
 
-    self.driver.find_element(By.XPATH,
-                             '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/div/div[2]/div[1]/form/div[3]/div[2]/div[1]/div/div[2]/div/div/input').click()
-    # driver.find_element(By.XPATH,'//*[@id="app"]/div[1]/div[2]/div[2]/div/div/div/div[2]/div[1]/form/div[3]/div[2]/div[1]/div/div[2]/div/div/input').clear()
-    # driver.find_element(By.XPATH,'//*[@id="app"]/div[1]/div[2]/div[2]/div/div/div/div[2]/div[1]/form/div[3]/div[2]/div[1]/div/div[2]/div/div/input').send_keys('1995-21-09')
-    time.sleep(3)
-    self.driver.find_element(By.XPATH,
-                             '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/div/div[2]/div[1]/form/div[3]/div[2]/div[2]/div/div[2]/div[1]/div[2]/div/label/span').click()
-    time.sleep(3)
+    def marital_select(self):
+        return self.driver.find_element(*Employee_Management.marital_option)
 
-    self.driver.find_element(By.XPATH,
-                             '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/div/div[2]/div[1]/form/div[4]/button').click()
-    time.sleep(5)
-    self.driver.find_element(By.XPATH,
-                             '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/div/div[2]/div[2]/div/form/div[1]/div/div[1]/div/div[2]/div/div').click()
+    def date_of_birth(self):
+        return self.driver.find_element(*Employee_Management.dob)
 
-    self.driver.find_element(By.XPATH,
-                             '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/div/div[2]/div[2]/div/form/div[1]/div/div[1]/div/div[2]/div/div[2]/div[6]').click()
-    time.sleep(5)
-    self.driver.find_element(By.XPATH,
-                             '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/div/div[2]/div[2]/div/form/div[2]/button').click()
-    time.sleep(5)
-'''
+    def gender_options(self):
+        return self.driver.find_element(*Employee_Management.gender)
+
+    def save_buttons(self):
+        return self.driver.find_element(*Employee_Management.data_save)
+
+    def blood_group_dropdown(self):
+        return self.driver.find_element(*Employee_Management.blood_group)
+
+    def blood_group_select(self):
+        return self.driver.find_element(*Employee_Management.blood_group_option)
+
+    def blood_group_data(self):
+        return self.driver.find_element(*Employee_Management.blood_group_save)
+
