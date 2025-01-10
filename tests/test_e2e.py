@@ -14,6 +14,7 @@ import random
 
 from pageObjects.Admin import Admin
 from pageObjects.Dashboard import Dashboard
+from pageObjects.Delete_Employee import Delete_Employee
 from pageObjects.Employee_Management import Employee_Management
 from utilities.BaseClass import BaseClass
 
@@ -77,12 +78,9 @@ class TestOne(BaseClass):
        time.sleep(5)
 
        pi.search_name().click()
-
        pi.search_name().send_keys("Angry K Bird")
 
        time.sleep(3)
-       # self.driver.find_element(By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[1]/div/div[2]/div/div[2]/div').click()
-       time.sleep(5)
        pi.search_number().click()
        pi.search_number().send_keys(number)
 
@@ -128,87 +126,80 @@ class TestOne(BaseClass):
 
        time.sleep(5)
 
+       # Admin Management
+
        admin_s = Admin(self.driver)
        admin_s.admins().click()
        time.sleep(5)
 
-
-
-
-
-       # self.driver.find_element(By.XPATH, '//*[@id="app"]/div[1]/div[1]/aside/nav/div[2]/ul/li[1]/a').click()
-       time.sleep(3)
+       #time.sleep(3)
        admin_s.add_emp().click()
-       # self.driver.find_element(By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div[2]/div[1]/button').click()
+
        time.sleep(3)
        admin_s.user_role_dropdowns().click()
-       # self.driver.find_element(By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div[1]/div/div[2]/div/div').click()
+
        time.sleep(2)
        admin_s.user_role_options().click()
-       # self.driver.find_element(By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div[1]/div/div[2]/div/div[2]/div[2]/span').click()
        time.sleep(2)
        admin_s.emp_hints().click()
        admin_s.emp_hints().send_keys('Angry K Bird')
-       #self.driver.find_element(By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div[2]/div/div[2]/div/div/input').click()
-       #self.driver.find_element(By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div[2]/div/div[2]/div/div/input').send_keys('Angry K Bird')
+
        time.sleep(6)
 
        admin_s.emp_results().click()
-       # self.driver.find_element(By.XPATH,'//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div[2]/div/div[2]/div/div[2]/div').click()
        time.sleep(3)
        admin_s.status_dropdowns().click()
-       # self.driver.find_element(By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div[3]/div/div[2]/div/div').click()
        time.sleep(2)
        admin_s.status_options().click()
-       # self.driver.find_element(By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div[3]/div/div[2]/div/div[2]/div[2]').click()
        time.sleep(3)
+
        admin_s.emp_names().click()
        admin_s.emp_names().send_keys("Angry K Bird")
-       # self.driver.find_element(By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div[4]/div/div[2]/input').click()
-       # self.driver.find_element(By.XPATH,'//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div[4]/div/div[2]/input').send_keys("Angry K Bird")
        time.sleep(6)
+
        admin_s.passwords().click()
        admin_s.passwords().send_keys("Password@123")
-       # self.driver.find_element(By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div[1]/div/div[2]/input').click()
-       #self.driver.find_element(By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div[1]/div/div[2]/input').click()
-       #self.driver.find_element(By.XPATH,'//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div[1]/div/div[2]/input').send_keys("Password@123")
+       time.sleep(2)
+
        admin_s.confirm_passwords().click()
        admin_s.confirm_passwords().send_keys("Password@123")
-       # self.driver.find_element(By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div[2]/div/div[2]/input').click()
-       # self.driver.find_element(By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div[2]/div/div[2]/input').send_keys('Password@123')
        time.sleep(2)
+
        admin_s.data_save().click()
-       # self.driver.find_element(By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[3]/button[2]').click()
        time.sleep(10)
-       '''
-       self.driver.find_element(By.XPATH,'//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[1]/div/div[2]/input').click()
-       self.driver.find_element(By.XPATH,'//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[1]/div/div[2]/input').send_keys("Angry K Bird")
-       self.driver.find_element(By.XPATH,'//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[2]/button[2]').click()
+
+       delete = Delete_Employee(self.driver)
+       delete.emp_searches().click()
+       delete.emp_searches().send_keys("Angry K Bird")
+
+       delete.search_button().click()
        time.sleep(5)
 
-       self.driver.find_element(By.XPATH,'//*[@id="app"]/div[1]/div[2]/div[2]/div/div[2]/div[3]/div/div[2]/div/div/div[6]/div/button[1]/i').click()
-       time.sleep(5)
-       self.driver.find_element(By.XPATH,
-                                '//*[@id="app"]/div[3]/div/div/div/div[3]/button[2]').click()
-       time.sleep(5)
-       self.driver.find_element(By.XPATH,'//*[@id="app"]/div[1]/div[1]/aside/nav/div[2]/ul/li[2]/a').click()
-       time.sleep(5)
-       self.driver.find_element(By.XPATH,'//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[1]/div/div[2]/div/div/input').click()
-       time.sleep(2)
-       self.driver.find_element(By.XPATH,'//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[1]/div/div[2]/div/div/input').send_keys("Angry k Bird")
-       time.sleep(3)
-       self.driver.find_element(By.XPATH,'//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[1]/div/div[2]/div/div[2]/div').click()
+       delete.delete_icon().click()
        time.sleep(5)
 
-       self.driver.find_element(By.XPATH,'//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[2]/div/div[2]/input').click()
-       time.sleep(2)
-       self.driver.find_element(By.XPATH,'//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[2]/div/div[2]/input').send_keys(number)
-       time.sleep(3)
-       self.driver.find_element(By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[2]/button[2]').click()
+       delete.delete_confirmation().click()
        time.sleep(5)
-       self.driver.find_element(By.XPATH,'//*[@id="app"]/div[1]/div[2]/div[2]/div/div[2]/div[3]/div/div[2]/div/div/div[9]/div/button[2]').click()
+
+       delete.pim_page().click()
        time.sleep(3)
-       self.driver.find_element(By.XPATH,'//*[@id="app"]/div[3]/div/div/div/div[3]/button[2]').click()
+
+       delete.search_names().click()
+       delete.search_names().send_keys("Angry K Bird")
        time.sleep(5)
-'''
+
+       delete.number().click()
+       delete.number().send_keys(number)
+       time.sleep(3)
+
+       delete.search_emps().click()
+       time.sleep(5)
+
+       delete.delete_emps().click()
+       time.sleep(5)
+
+       delete.delete_confirm().click()
+       time.sleep(5)
+
+
        # driver.quit()
