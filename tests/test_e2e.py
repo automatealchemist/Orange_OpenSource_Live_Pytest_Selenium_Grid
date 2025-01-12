@@ -30,11 +30,12 @@ class TestOne(BaseClass):
        # Dashboard
        dashboard=Dashboard(self.driver)
        time.sleep(5)
-       dashboard.pim().click()
+
+       pi= dashboard.pim()
        time.sleep(3)
 
        # employee management
-       pi = Employee_Management(self.driver)
+      #  pi = Employee_Management(self.driver)
        pi.add().click()
 
        time.sleep(5)
@@ -45,8 +46,10 @@ class TestOne(BaseClass):
 
        pi.middle_name_click().click()
        time.sleep(3)
+
        pi.middle_name_input().send_keys("k")
        time.sleep(2)
+
        pi.last_name_click().click()
        time.sleep(3)
        pi.last_name_input().send_keys("Bird")
@@ -128,8 +131,8 @@ class TestOne(BaseClass):
 
        # Admin Management
 
-       admin_s = Admin(self.driver)
-       admin_s.admins().click()
+       admin_s= pi.admins()
+       # admin_s.admins()
        time.sleep(5)
 
        #time.sleep(3)
@@ -148,8 +151,10 @@ class TestOne(BaseClass):
 
        admin_s.emp_results().click()
        time.sleep(3)
+
        admin_s.status_dropdowns().click()
        time.sleep(2)
+
        admin_s.status_options().click()
        time.sleep(3)
 
@@ -168,8 +173,14 @@ class TestOne(BaseClass):
        admin_s.data_save().click()
        time.sleep(10)
 
-       delete = Delete_Employee(self.driver)
+       # Delete Employee Management
+
+       delete = admin_s.delete_b()
+       time.sleep(3)
+
+
        delete.emp_searches().click()
+       time.sleep(2)
        delete.emp_searches().send_keys("Angry K Bird")
 
        delete.search_button().click()
