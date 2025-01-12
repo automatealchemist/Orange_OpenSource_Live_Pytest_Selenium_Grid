@@ -1,5 +1,7 @@
 from selenium.webdriver.common.by import By
 
+from pageObjects.Admin import Admin
+
 
 class Employee_Management:
 
@@ -26,10 +28,11 @@ class Employee_Management:
     dob = (By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/div/div[2]/div[1]/form/div[3]/div[2]/div[1]/div/div[2]/div/div/input')
     gender = (By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/div/div[2]/div[1]/form/div[3]/div[2]/div[2]/div/div[2]/div[1]/div[2]/div/label/span')
     # data_save= (By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/div/div[2]/div[1]/form/div[4]/button')
-    data_save = (By.XPATH,'//*[@id="app"]/div[1]/div[2]/div[2]/div/div/div/div[2]/div[1]/form/div[5]/button')
+    data_save = (By.XPATH,'//*[@id="app"]/div[1]/div[2]/div[2]/div/div/div/div[2]/div[1]/form/div[4]/button')
     blood_group=(By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/div/div[2]/div[2]/div/form/div[1]/div/div[1]/div/div[2]/div/div')
     blood_group_option = (By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/div/div[2]/div[2]/div/form/div[1]/div/div[1]/div/div[2]/div/div[2]/div[6]')
     blood_group_save = (By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/div/div[2]/div[2]/div/form/div[2]/button')
+    admin = (By.XPATH, '//*[@id="app"]/div[1]/div[1]/aside/nav/div[2]/ul/li[1]/a')
 
     def __init__(self,driver):
         self.driver=driver
@@ -129,4 +132,9 @@ class Employee_Management:
 
     def blood_group_data(self):
         return self.driver.find_element(*Employee_Management.blood_group_save)
+
+    def admins(self):
+        self.driver.find_element(*Employee_Management.admin).click()
+        admin_s = Admin(self.driver)
+        return admin_s
 

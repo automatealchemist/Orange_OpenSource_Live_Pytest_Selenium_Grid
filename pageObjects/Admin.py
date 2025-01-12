@@ -1,9 +1,11 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.devtools.v85.dom import discard_search_results
 
+from pageObjects.Delete_Employee import Delete_Employee
+
 
 class Admin:
-    admin = (By.XPATH, '//*[@id="app"]/div[1]/div[1]/aside/nav/div[2]/ul/li[1]/a')
+
     add = (By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div[2]/div[1]/button')
     user_role_dropdown = (By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div[1]/div/div[2]/div/div')
     user_role_option = (By.XPATH,'//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div[1]/div/div[2]/div/div[2]/div[2]/span')
@@ -25,6 +27,7 @@ class Admin:
     search_pim  = (By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[2]/button[2]')
     delete_pim = (By.XPATH,'//*[@id="app"]/div[1]/div[2]/div[2]/div/div[2]/div[3]/div/div[2]/div/div/div[9]/div/button[2]')
     delete_con = (By.XPATH,'//*[@id="app"]/div[3]/div/div/div/div[3]/button[2]')
+    admin = (By.XPATH, '//*[@id="app"]/div[1]/div[1]/aside/nav/div[2]/ul/li[1]/a')
 
 
     def __init__(self,driver):
@@ -32,8 +35,7 @@ class Admin:
 
 
 
-    def admins(self):
-        return self.driver.find_element(*Admin.admin)
+
 
     def add_emp(self):
         return self.driver.find_element(*Admin.add)
@@ -68,7 +70,10 @@ class Admin:
     def data_save(self):
         return self.driver.find_element(*Admin.data_saves)
 
-
+    def delete_b(self):
+        self.driver.find_element(*Admin.admin).click()
+        delete = Delete_Employee(self.driver)
+        return delete
 
 
 

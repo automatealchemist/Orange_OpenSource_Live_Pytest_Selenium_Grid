@@ -1,5 +1,7 @@
 from selenium.webdriver.common.by import By
 
+from pageObjects.Employee_Management import Employee_Management
+
 
 class Dashboard:
 
@@ -10,5 +12,7 @@ class Dashboard:
     p = (By.XPATH,'//*[@id="app"]/div[1]/div[1]/aside/nav/div[2]/ul/li[2]/a')
 
     def pim(self):
-        return self.driver.find_element(*Dashboard.p)
+        self.driver.find_element(*Dashboard.p).click()
         #self. driver.find_element(By.XPATH, '//*[@id="app"]/div[1]/div[1]/aside/nav/div[2]/ul/li[2]/a')
+        pi = Employee_Management(self.driver)
+        return pi
