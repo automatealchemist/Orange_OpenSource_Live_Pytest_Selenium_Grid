@@ -1,9 +1,10 @@
 from selenium.webdriver.common.by import By
 
 from pageObjects.Employee_Management import Employee_Management
+from utilities.BaseClass import BaseClass
 
 
-class Dashboard:
+class Dashboard(BaseClass):
 
     def __init__(self,driver):
         self.driver = driver

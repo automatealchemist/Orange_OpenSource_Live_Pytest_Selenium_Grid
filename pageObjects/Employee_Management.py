@@ -1,9 +1,10 @@
 from selenium.webdriver.common.by import By
 
 from pageObjects.Admin import Admin
+from utilities.BaseClass import BaseClass
 
 
-class Employee_Management:
+class Employee_Management(BaseClass):
 
     add_button = (By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div[2]/div[1]/button')
     firstname = (By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[1]/div[2]/div[1]/div[1]/div/div/div[2]/div[1]/div[2]/input')

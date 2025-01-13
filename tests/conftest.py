@@ -3,9 +3,6 @@ import time
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.select import Select
-
 from selenium.webdriver.edge.service import Service
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
@@ -48,7 +45,7 @@ def setup(request):
     request.cls.driver=driver
     yield
     driver.find_element(By.XPATH,'//*[@id="app"]/div[1]/div[1]/header/div[1]/div[3]/ul/li').click()
-    time.sleep(2)
+    time.sleep(5)
     driver.find_element(By.XPATH,'//*[@id="app"]/div[1]/div[1]/header/div[1]/div[3]/ul/li/ul/li[4]/a').click()
     time.sleep(5)
     driver.close()
