@@ -1,19 +1,16 @@
-import time
+import random
 
 import pytest
 from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.edge.service import Service
 from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.common.by import By
+import time
 
-def pytest_addoption(parser):
-    parser.addoption(
-        "--browser_name", action="store", default="chrome"
-    )
-
-
+from TestData.AdminData import AdminData
+from TestData.DeleteEmployeeData import DeleteEmployeeData
+from TestData.EmployeeManagementData import EmployeeManagementData
 
 @pytest.fixture(scope="class")
 def setup(request):
@@ -22,30 +19,39 @@ def setup(request):
         chrome_option = Options()
         chrome_option.add_experimental_option("detach", True)
         driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_option)
-
-    #elif browser_name == "firefox":
-     #   serv_obj = Service("C:/Users/HELLO/OrangeHRM Demo-Open Source Website Through Pytest/firefoxdriver.exe")
-      #  driver = webdriver.Firefox(service=serv_obj)
     elif browser_name == "edge":
-       ser_obj = Service(r"C:\Users\HELLO\OrangeHRM Demo-Open Source Website Through Pytest\msedgedriver.exe")
-       driver = webdriver.Edge(service=ser_obj)
+        path = r"C:\Users\HELLO\OrangeHRM Demo-Open Source Website Through Pytest\msedgedriver.exe"
+        ser_obj = Service(path)
+        driver = webdriver.Edge(service=ser_obj)
 
     driver.maximize_window()
     driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
     time.sleep(5)
 
-    driver.find_element(By.XPATH,
-                        '//*[@id="app"]/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div/div[2]/input').send_keys(
-        "Admin")
-    driver.find_element(By.XPATH,
-                        '//*[@id="app"]/div[1]/div/div[1]/div/div[2]/div[2]/form/div[2]/div/div[2]/input').send_keys(
-        "admin123")
-
+    driver.find_element(By.XPATH, '//*[@id="app"]/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div/div[2]/input').send_keys("Admin")
+    driver.find_element(By.XPATH, '//*[@id="app"]/div[1]/div/div[1]/div/div[2]/div[2]/form/div[2]/div/div[2]/input').send_keys("admin123")
     driver.find_element(By.XPATH, '//*[@id="app"]/div[1]/div/div[1]/div/div[2]/div[2]/form/div[3]/button').click()
-    request.cls.driver=driver
-    yield
-    driver.find_element(By.XPATH,'//*[@id="app"]/div[1]/div[1]/header/div[1]/div[3]/ul/li').click()
-    time.sleep(5)
-    driver.find_element(By.XPATH,'//*[@id="app"]/div[1]/div[1]/header/div[1]/div[3]/ul/li/ul/li[4]/a').click()
-    time.sleep(5)
-    driver.close()
+
+    request.cls.driver = driver
+    yield driver
+    driver.quit()
+
+@pytest.fixture(params=EmployeeManagementData.test_employee_data)
+def get_employee_data(request):
+    return request.param
+
+@pytest.fixture(params=AdminData.test_admin_data)
+def get_admin_data(request):
+    return request.param
+
+@pytest.fixture(params=DeleteEmployeeData.test_delete_employee_data)
+def get_delete_employee(request):
+    return request.param
+
+@pytest.fixture(scope="class")
+def employee_number():
+    return random.randint(1000, 9999)
+
+
+def pytest_addoption(parser):
+    parser.addoption("--browser_name", action="store", default="chrome")
