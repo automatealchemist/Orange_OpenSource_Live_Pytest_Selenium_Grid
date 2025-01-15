@@ -1,4 +1,5 @@
 import pytest
+import sentry_sdk
 
 from pageObjects.Admin import Admin
 from utilities.BaseClass import BaseClass
@@ -35,4 +36,5 @@ class TestE2E(BaseClass):
 
         # Delete operations
         delete.delete_admin_user(self.driver, delete_page, get_delete_employee)
-        delete.delete_employee(self.driver, delete_page, emp_number,employee_number, get_delete_employee)
+        delete.delete_employee(self.driver, delete_page, employee_number, get_delete_employee)
+
