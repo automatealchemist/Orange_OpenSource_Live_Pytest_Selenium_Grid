@@ -1,7 +1,6 @@
 import random
 
 import pytest
-import sentry_sdk
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
@@ -53,9 +52,6 @@ def get_delete_employee(request):
 @pytest.fixture(scope="class")
 def employee_number():
     return random.randint(1000, 9999)
-
-    # Add a test event
-    sentry_sdk.capture_message("Sentry integration test - pytest starting")
 
 def pytest_addoption(parser):
     parser.addoption("--browser_name", action="store", default="chrome")
