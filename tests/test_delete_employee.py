@@ -35,7 +35,7 @@ class DeleteEmployee(BaseClass):
         delete.number().send_keys(str(emp_number))  # This will now input just the number (e.g., "1248")
 
         delete.search_emps().click()
-        time.sleep(2)
+        time.sleep(5)
         delete.delete_emps().click()
-        time.sleep(2)
+        time.sleep(5)
         delete.delete_confirm().click()
