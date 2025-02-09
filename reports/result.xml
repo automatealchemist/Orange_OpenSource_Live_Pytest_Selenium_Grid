@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="0" skipped="0" tests="1" time="130.742" timestamp="2025-02-09T14:25:35.687740+05:30" hostname="Angry-Bird"><testcase classname="tests.test_e2e.TestE2E" name="test_e2e[get_employee_data0-get_admin_data0-get_delete_employee0]" time="129.828" /></testsuite></testsuites>
