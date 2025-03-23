@@ -34,6 +34,7 @@ class AdminManagement:
             (By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div[2]/div/div[2]/div/div/input')
         ))
         emp_hint.click()
+        time.sleep(5)
         emp_hint.send_keys(get_admin_data["name"])
         time.sleep(3)
 
@@ -62,6 +63,7 @@ class AdminManagement:
             (By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div[4]/div/div[2]/input')
         ))
         username.click()
+        time.sleep(4)
         username.send_keys(get_admin_data["name"])
 
         # Password fields

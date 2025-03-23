@@ -1,8 +1,8 @@
-
+from utilities.BaseClass import BaseClass
 
 class DeleteEmployeeData:
     test_delete_employee_data =[
         {
-            "name" : "Angry K Bird"
+            "name" : BaseClass.generate_full_name()["full_name"]
         }
     ]
